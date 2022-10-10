@@ -40,21 +40,24 @@ class Calculator {
     etc
      */
     int fibonacciNumberFinder(int n){
-        int firstNumber = 0;
-        int secondNumber = 1
-        int c;
-
-        if (n == 0) {
-            return firstNumber;
-        }
-
-        for (int i = 2; i <= n; i++) {
-            c = firstNumber + secondNumber;
-            firstNumber = secondNumber;
-            secondNumber = c;
-        }
-
-        return secondNumber;
+//        int firstNumber = 0;
+//        int secondNumber = 1
+//        int c;
+//
+//        if (n == 0) {
+//            return firstNumber;
+//        }
+//
+//        for (int i = 2; i <= n; i++) {
+//            c = firstNumber + secondNumber;
+//            firstNumber = secondNumber;
+//            secondNumber = c;
+//        }
+//
+//        return secondNumber;
+        if (n <= 1)
+            return n;
+        return fibonacciNumberFinder(n-1) + fibonacciNumberFinder(n-2);
     }
 
 
