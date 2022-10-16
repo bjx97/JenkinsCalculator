@@ -4,11 +4,14 @@ public class Main {
   public static void main(String args[]) {
     Scanner scanner = new Scanner(System.in);
     Calculator calculator = new Calculator();
-
+    int counter = 0;
     label:
     while (true) {
-      System.out.println("Welcome to the Calculator");
-      System.out.println("Enter a command:");
+      if (counter == 0) {
+        System.out.println("Welcome to the Calculator");
+        System.out.println("Enter a command:");
+      }
+
       String command = scanner.nextLine();
       String[] words = command.split("\\s+");
 
@@ -18,6 +21,7 @@ public class Main {
           int number2=Integer.parseInt(words[2]);
           int answer=calculator.add(number1, number2);
           System.out.println(answer);
+          counter++;
           break;
         }
 
@@ -26,6 +30,7 @@ public class Main {
           int n2=Integer.parseInt(words[2]);
           int answer=calculator.subtract(n1, n2);
           System.out.println(answer);
+          counter++;
           break;
         }
 
@@ -34,6 +39,7 @@ public class Main {
           int n2=Integer.parseInt(words[2]);
           int answer=calculator.multiply(n1, n2);
           System.out.println(answer);
+          counter++;
           break;
         }
 
@@ -42,6 +48,7 @@ public class Main {
           int n2=Integer.parseInt(words[2]);
           int answer=calculator.divide(n1, n2);
           System.out.println(answer);
+          counter++;
           break;
         }
 
@@ -49,13 +56,15 @@ public class Main {
           int number1=Integer.parseInt(words[1]);
           int answer=calculator.fibonacciNumberFinder(number1);
           System.out.println(answer);
+          counter++;
           break;
         }
 
-        case "intToBin": {
+        case "binary": {
           int number1=Integer.parseInt(words[1]);
           String answer=calculator.intToBinaryNumber(number1);
           System.out.println(answer);
+          counter++;
           break;
         }
 
@@ -66,6 +75,7 @@ public class Main {
         default:
           System.out.println("Enter add, subtract, multiply, divide, fibonacci, or intToBin as a command. " +
                   "Enter cancel or quit to exit the program.");
+          counter++;
           break;
       }
 
