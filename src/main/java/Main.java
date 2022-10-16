@@ -5,66 +5,68 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     Calculator calculator = new Calculator();
 
+    label:
     while (true) {
-      // get input
-      System.out.println("Calculator");
-      System.out.println("Enter command:");
+      System.out.println("Welcome to the Calculator");
+      System.out.println("Enter a command:");
       String command = scanner.nextLine();
       String[] words = command.split("\\s+");
 
-      // add
-      if (words[0].equals("add")) {
-        int n1 = Integer.parseInt(words[1]);
-        int n2 = Integer.parseInt(words[2]);
-        int answer = calculator.add(n1, n2);
-        System.out.println(answer);
-      }
+      switch (words[0]) {
+        case "add": {
+          int number1=Integer.parseInt(words[1]);
+          int number2=Integer.parseInt(words[2]);
+          int answer=calculator.add(number1, number2);
+          System.out.println(answer);
+          break;
+        }
 
-      // subtract
-      else if (words[0].equals("sub")) {
-        int n1 = Integer.parseInt(words[1]);
-        int n2 = Integer.parseInt(words[2]);
-        int answer = calculator.subtract(n1, n2);
-        System.out.println(answer);
-      }
+        case "subtract": {
+          int n1=Integer.parseInt(words[1]);
+          int n2=Integer.parseInt(words[2]);
+          int answer=calculator.subtract(n1, n2);
+          System.out.println(answer);
+          break;
+        }
 
-      // multiply
-      else if (words[0].equals("mul")) {
-        int n1 = Integer.parseInt(words[1]);
-        int n2 = Integer.parseInt(words[2]);
-        int answer = calculator.multiply(n1, n2);
-        System.out.println(answer);
-      }
+        case "multiply": {
+          int n1=Integer.parseInt(words[1]);
+          int n2=Integer.parseInt(words[2]);
+          int answer=calculator.multiply(n1, n2);
+          System.out.println(answer);
+          break;
+        }
 
-      // divide
-      else if (words[0].equals("div")) {
-        int n1 = Integer.parseInt(words[1]);
-        int n2 = Integer.parseInt(words[2]);
-        int answer = calculator.divide(n1, n2);
-        System.out.println(answer);
-      }
+        case "divide": {
+          int n1=Integer.parseInt(words[1]);
+          int n2=Integer.parseInt(words[2]);
+          int answer=calculator.divide(n1, n2);
+          System.out.println(answer);
+          break;
+        }
 
-      // fibonacci
-      else if (words[0].equals("fib")) {
-        int n = Integer.parseInt(words[1]);
-        int answer = calculator.fibonacciNumberFinder(n);
-        System.out.println(answer);
-      }
+        case "fibonacci": {
+          int number1=Integer.parseInt(words[1]);
+          int answer=calculator.fibonacciNumberFinder(number1);
+          System.out.println(answer);
+          break;
+        }
 
-      // intToBin
-      else if (words[0].equals("ib")) {
-        int n = Integer.parseInt(words[1]);
-        String answer = calculator.intToBinaryNumber(n);
-        System.out.println(answer);
-      }
+        case "intToBin": {
+          int number1=Integer.parseInt(words[1]);
+          String answer=calculator.intToBinaryNumber(number1);
+          System.out.println(answer);
+          break;
+        }
 
-      // quit
-      else if (words[0].equals("q") || words[0].equals("quit")) {
-        System.out.println("goodbye.");
-        break;
-      }
-      else {
-        System.out.println("q or quit to quit");
+        case "cancel":
+        case "quit":
+          break label;
+
+        default:
+          System.out.println("Enter add, subtract, multiply, divide, fibonacci, or intToBin as a command. " +
+                  "Enter cancel or quit to exit the program.");
+          break;
       }
 
     }
